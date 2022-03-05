@@ -4,7 +4,7 @@ import * as ticketsCtrl from '../controllers/tickets.js'
 const router = Router()
 
 
-router.get('/tickets',)
+router.get('/', ticketsCtrl.index)
 
 
 

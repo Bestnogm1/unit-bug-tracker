@@ -15,7 +15,7 @@ problems:{
 
 })
 
-const Ticket = mongoose.model('Ticket', profileSchema)
+const Ticket = mongoose.model('Ticket', ticketsSchema)
 
 export {
   Ticket
