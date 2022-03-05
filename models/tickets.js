@@ -8,7 +8,7 @@ type: String,
 enum: ['Urgent', 'High', 'Normal', 'Low']
 },
 Date: Date,
-problem:{
+problems:{
   type: String,
   enum: ['Software','Hardware']
 },
