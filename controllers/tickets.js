@@ -21,12 +21,11 @@ function newTicket(req, res) {
 }
 
 function create(req, res){
-const ticket =  new Ticket(req.body)
-ticket.save((error)=>{
-  if(error)return res.redirect('/tickets/new')
-  res.redirect('/tickets')
-
-})
+  const ticket =  new Ticket(req.body)
+  ticket.save((error)=>{
+    if(error)return res.redirect('/tickets/new')
+    res.redirect('/tickets')
+  })
 }
 
 export{

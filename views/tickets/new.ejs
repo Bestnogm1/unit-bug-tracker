@@ -1,23 +1,28 @@
 
-
+<main> 
 <a href="/tickets"> main</a>
 
 <h1>add tickets</h1>
-<form action='/tickets' method="POST">
+<form method="POST" action="/tickets">
+
   <label>assigned to </label>
-  <input type="text" name="assingedTo" value="assigned to" />
-  <select name="severity" id="sdf">
+  <input type="text" name="assingedTo"  required>
+
+  <label>details </label>
+  <input type="text" name="details"  required>
+
+  <select name="severity"  required>
     <option value="Urgent"> Urgent</option>
     <option value="High"> High </option>
     <option value="Normal"> Normal </option>
     <option value="Low"> Low </option>
   </select>
 
-  <select name="problems" id="">
+  <select name="problems" required >
     <option value="Software">Software</option>
     <option value="Hardware">Hardware</option>
   </select>
-  <label>problem </label>
-  <input type="text" name="" value="problem">
-  <button type="submit">Add flights</button>
+
+  <button type="submit">add ticket</button>
 </form>
+</main>

@@ -1,32 +1,27 @@
 
-
+<main> 
 <%= title %>
 <h1>this is the tickets page</h1> 
 <a href="/tickets/new">new</a>
 <table>
     <thead> 
       <tr>
-        <td>assingedTo</td>
-        <td>details</td>
-        <td>Problems</td>
-        <td>Severity</td>
-        <td>Date</td>
-        <td>ID</td>
-        <td></td>
+        <th>assingedTo</th>
+        <th>details</th>
+        <th>Problems</th>
+        <th>Severity</th>
       </tr>
     </thead>
     <tr>
       <% tickets.forEach((ticket)=>{ %>
-        <td><%= ticket.assignedTo%> </td>
-        <td><%=ticket.details  %> </td>
-        <td><%=ticket.severity%> </td>
-        <td><%=ticket.problems %> </td>
-        <td><%=ticket.date%>  </td>
-        <td><%=ticket._id  %> </td>
-      </tr>
+        <td><%= ticket.assingedTo %> </td>
+        <td><%= ticket.details  %> </td>
+        <td><%= ticket.problems %> </td>  
+        <td><%= ticket.severity %> </td>
+    </tr>
       <% }) %> 
 </table>
-
+</main>
 
 
 
