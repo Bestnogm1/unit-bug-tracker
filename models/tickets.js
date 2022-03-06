@@ -7,14 +7,14 @@ severity:{
 type: String,
 enum: ['Urgent', 'High', 'Normal', 'Low']
 },
-date: Date,
+details: String,
 problems:{
   type: String,
   enum: ['Software','Hardware']
 },
 _id: Number
-
 })
+
 
 const Ticket = mongoose.model('Ticket', ticketsSchema)
 
