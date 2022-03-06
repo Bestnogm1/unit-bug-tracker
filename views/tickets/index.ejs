@@ -9,17 +9,18 @@
         <td>assingedTo</td>
         <td>Problems</td>
         <td>Severity</td>
-        <td>ime</td>
-        <td>TDate</td>
+        <td>Date</td>
+        <td>ID</td>
         <td></td>
       </tr>
     </thead>
     <tr>
       <% tickets.forEach((ticket)=>{ %>
         <td><%= ticket.assignedTo%> </td>
-        <td><%= ticket.problems%> </td>
-        <td><%  %> </td>
-        <td>f</td>
+        <td><%=ticket.severity%> </td>
+        <td><%=ticket.problems %> </td>
+        <td><%=ticket.date%>  </td>
+        <td><%=ticket._id  %> </td>
       </tr>
       <% }) %> 
 </table>

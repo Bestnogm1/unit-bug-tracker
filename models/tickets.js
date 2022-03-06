@@ -3,15 +3,16 @@ import mongoose from 'mongoose'
 const ticketsSchema = new mongoose.Schema({
 assingedTo: String,
 Time: Number,
-Severity:{
+severity:{
 type: String,
 enum: ['Urgent', 'High', 'Normal', 'Low']
 },
-Date: Date,
+date: Date,
 problems:{
   type: String,
   enum: ['Software','Hardware']
 },
+_id: Number
 
 })
 
