@@ -2,23 +2,23 @@
 
 <%= title %>
 <h1>this is the tickets page</h1> 
-
+<a href="/tickets/new">new</a>
 <table>
     <thead> 
       <tr>
-        <td>AssingedTo</td>
-        <td>Time</td>
-        <td>Severity</td>
-        <td>Date</td>
+        <td>assingedTo</td>
         <td>Problems</td>
+        <td>Severity</td>
+        <td>ime</td>
+        <td>TDate</td>
+        <td></td>
       </tr>
     </thead>
     <tr>
       <% tickets.forEach((ticket)=>{ %>
         <td><%= ticket.assignedTo%> </td>
-        <td><%= ticket. %> </td>
-        <td>wew</td>
-        <td>gsd</td>
+        <td><%= ticket.problems%> </td>
+        <td><%  %> </td>
         <td>f</td>
       </tr>
       <% }) %> 

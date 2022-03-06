@@ -11,11 +11,16 @@ function index(req, res) {
   })
   .catch(err =>{
     console.log(err);
-    re.redirect('/tickets')
+    res.redirect('/tickets')
   })
   
 }
 
+function newTicket(req, res) {
+  res.render('tickets/new')
+}
+
 export{
-  index
+  index,
+  newTicket as new 
 }

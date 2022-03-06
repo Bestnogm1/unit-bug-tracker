@@ -5,7 +5,7 @@ const router = Router()
 
 
 router.get('/', ticketsCtrl.index)
-
+router.get('/new', isLoggedIn,ticketsCtrl.new)
 
 
 export{
