@@ -1,21 +1,27 @@
 
+
 <%= title %>
 <h1>this is the tickets page</h1> 
+
 <table>
-  <tr>
-<td>AssingedTo</td>
-<td>Time</td>
-<td>Severity</td>
-<td>Date</td>
-<td>Problems</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+    <thead> 
+      <tr>
+        <td>AssingedTo</td>
+        <td>Time</td>
+        <td>Severity</td>
+        <td>Date</td>
+        <td>Problems</td>
+      </tr>
+    </thead>
+    <tr>
+      <% tickets.forEach((ticket)=>{ %>
+        <td><%= ticket.assignedTo%> </td>
+        <td><%= ticket. %> </td>
+        <td>wew</td>
+        <td>gsd</td>
+        <td>f</td>
+      </tr>
+      <% }) %> 
 </table>
 
 
