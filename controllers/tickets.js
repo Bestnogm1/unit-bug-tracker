@@ -53,12 +53,15 @@ function deleteTicket(req, res) {
   Ticket.findById(req.params.id)
   .populate('owner')
   .then(ticket => {
+    console.log(ticket);
     if(ticket.owner.equals(req.user.profile._id)) {
       ticket.delete()
       .then(()=>{
-        console.log('OWNER:  ',ticket.owner)
+        console.log('OWNER:  ',typeof ticket.owner )
         res.redirect('/tickets')
-
+        .catch(error => {
+          res.redirect('/tickets')
+        })
       }) 
     } else {
       throw new Error("its wrong")

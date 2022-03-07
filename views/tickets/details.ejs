@@ -1,17 +1,21 @@
 
-
-
-
- <% if (ticket?.owner.avatar) { %>
+<% if (ticket?.owner.avatar) { %>
   <div>
-    <h1>request made by</h1>
-    <img
-      src="<%= ticket.owner.avatar %>"
-      alt="<%= ticket.owner.name %> avatar"
-    />
+    <h1>request made by<%= ticket.owner.name %></h1>
+    <img src="<%= ticket.owner.avatar %>"/>
   </div>
-
 <% } %>
+<h1>assineged to</h1>
+<h1><%= ticket.assingedTo %></h1>
+<h1>Full Detail</h1>
+<h1> <%= ticket.details  %></h1>
+<h1>Problems</h1>
+<h1><%= ticket.problems %></h1>
+<h1>Severity</h1>
+<h1><%= ticket.severity %></h1>
+<h1>TICKET_ID</h1>
+<h1><%= ticket._id  %></h1>
+
 
 
 
