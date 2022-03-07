@@ -22,7 +22,6 @@ function newTicket(req, res) {
 
 function create(req, res){
   req.body.owner = req.user.profile._id
-	req.body.tasty = !!req.body.tasty
   Ticket.create(req.body)
   .then(ticket => {
     res.redirect('/tickets')
@@ -38,7 +37,8 @@ function show(req, res) {
   Ticket.findById(req.params.id)
   .populate("owner")
   .then(ticket => {
-    res.render('tickets/detail', {
+    // console.log(ticket)
+    res.render('tickets/details', {
       ticket,
       title: "🌮 show"
     })
@@ -49,12 +49,12 @@ function show(req, res) {
   })
 }
 function deleteTicket(req, res) {
-  req.body.owner = req.user.profile._id
   Ticket.findById(req.params.id)
   .then(ticket => {
     if(ticket.owner.equals(req.user.profile._id)) {
       ticket.delete()
       .then(()=>{
+        console.log(ticket)
         res.redirect('/tickets')
 
       }) 
@@ -63,6 +63,7 @@ function deleteTicket(req, res) {
     }
   })
 }
+
 
 export{
   index,

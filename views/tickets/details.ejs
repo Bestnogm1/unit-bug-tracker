@@ -2,15 +2,17 @@
 
 
 
- <% if (user?.profile.avatar) { %>
+ <% if (ticket?.owner.avatar) { %>
   <div>
     <h1>request made by</h1>
     <img
-      src="<%= user.profile.avatar %>"
-      alt="<%= user.profile.name %> avatar"
+      src="<%= ticket.owner.avatar %>"
+      alt="<%= ticket.owner.name %> avatar"
     />
   </div>
+
 <% } %>
+
 
 
 
