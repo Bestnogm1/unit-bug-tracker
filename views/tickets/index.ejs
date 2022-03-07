@@ -25,13 +25,15 @@
         <td><%= ticket.severity %> </td>
         <td><%= ticket._id  %> </td>
         <td>  <a href="/tickets/<%= ticket._id %>">detail</td>
-          <% if(ticket.owner){%> 
+          <p>USER.PROFILE._id:  <%=  user.profile._id%> </p>
+          <p>USER._id:  <%=  user._id%> </p>
+          <p>TICKET.OWNER:   <%=  ticket.owner%> </p>
+
+
+          <% if(ticket.owner == user.profile._id){%> 
             <td><form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST"  >
             <button>X</button></form></td>
-          <%} else if(!ticket.owner){%> %>
-            <td><form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST"  >
-              <button hidden >X</button></form></td>
-          <% }%> 
+          <%} %>
     </tr>
       <% }) %> 
 

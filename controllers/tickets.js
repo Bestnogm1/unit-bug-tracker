@@ -49,12 +49,14 @@ function show(req, res) {
   })
 }
 function deleteTicket(req, res) {
+  req.body.owner = req.user.profile._id
   Ticket.findById(req.params.id)
+  .populate('owner')
   .then(ticket => {
     if(ticket.owner.equals(req.user.profile._id)) {
       ticket.delete()
       .then(()=>{
-        console.log(ticket)
+        console.log('OWNER:  ',ticket.owner)
         res.redirect('/tickets')
 
       }) 
