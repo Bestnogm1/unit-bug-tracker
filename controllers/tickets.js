@@ -48,21 +48,24 @@ function show(req, res) {
     res.redirect('/tickets')
   })
 }
+
 function deleteTicket(req, res) {
   req.body.owner = req.user.profile._id
   Ticket.findById(req.params.id)
   .populate('owner')
   .then(ticket => {
-    console.log(ticket);
+    console.log('owner',ticket.owner._id);
+    console.log('profile', req.user.profile._id);
+    
     if(ticket.owner.equals(req.user.profile._id)) {
       ticket.delete()
       .then(()=>{
         console.log('OWNER:  ',typeof ticket.owner )
         res.redirect('/tickets')
-        .catch(error => {
-          res.redirect('/tickets')
-        })
       }) 
+      .catch(error => {
+        res.redirect('/tickets')
+      })
     } else {
       throw new Error("its wrong")
     }
