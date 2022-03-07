@@ -28,8 +28,19 @@ function create(req, res){
   })
 }
 
+function show(req, res) {
+  Ticket.findById(req.params.id, function (error, ticket) {
+    res.render('tickets/details', { 
+      error,
+      title:" this is the detail page",
+      ticket
+    })
+  })
+}
+
 export{
   index,
   newTicket as new,
-  create
+  create,
+  show
 }
