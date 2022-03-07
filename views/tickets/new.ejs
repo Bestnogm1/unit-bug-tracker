@@ -2,6 +2,7 @@
 <main> 
 <a href="/tickets"> main</a>
 
+
 <h1>add tickets</h1>
 <form method="POST" action="/tickets">
 
@@ -22,7 +23,8 @@
     <option value="Software">Software</option>
     <option value="Hardware">Hardware</option>
   </select>
-
+<% if(user){ %>
   <button type="submit">add ticket</button>
+  <% } %> 
 </form>
 </main>
