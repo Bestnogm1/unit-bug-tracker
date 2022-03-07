@@ -21,25 +21,46 @@ function newTicket(req, res) {
 }
 
 function create(req, res){
-  const ticket =  new Ticket(req.body)
-  ticket.save((error)=>{
-    if(error)return res.redirect('/tickets/new')
+  req.body.owner = req.user.profile._id
+	req.body.tasty = !!req.body.tasty
+  Ticket.create(req.body)
+  .then(ticket => {
+    res.redirect('/tickets')
+  })
+  .catch(err => {
+    console.log('an error here');
+    console.log(err)
     res.redirect('/tickets')
   })
 }
 
 function show(req, res) {
-  Ticket.findById(req.params.id, function (error, ticket) {
-    res.render('tickets/details', { 
-      error,
-      title:" this is the detail page",
-      ticket
+  Ticket.findById(req.params.id)
+  .populate("owner")
+  .then(ticket => {
+    res.render('tickets/detail', {
+      ticket,
+      title: "🌮 show"
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/tickets')
   })
 }
 function deleteTicket(req, res) {
-  Ticket.findByIdAndDelete(req.params.id, function (error, ticket) {
-    res.redirect('/tickets')
+  req.body.owner = req.user.profile._id
+  Ticket.findById(req.params.id)
+  .then(ticket => {
+    if(ticket.owner.equals(req.user.profile._id)) {
+      ticket.delete()
+      .then(()=>{
+        res.redirect('/tickets')
+
+      }) 
+    } else {
+      throw new Error("its wrong")
+    }
   })
 }
 

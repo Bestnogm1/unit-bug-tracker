@@ -11,6 +11,9 @@ const ticketsSchema = new mongoose.Schema({
     type: String,
     enum: ['Urgent', 'High', 'Normal', 'Low']
   },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId, 'ref': 'Profile'
+  }
 })
 
 
