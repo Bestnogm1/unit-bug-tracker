@@ -37,10 +37,16 @@ function show(req, res) {
     })
   })
 }
+function deleteTicket(req, res) {
+  Ticket.findByIdAndDelete(req.params.id, function (error, ticket) {
+    res.redirect('/tickets')
+  })
+}
 
 export{
   index,
   newTicket as new,
   create,
-  show
+  show,
+  deleteTicket as delete
 }

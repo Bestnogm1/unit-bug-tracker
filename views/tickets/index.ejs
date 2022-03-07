@@ -23,9 +23,12 @@
         <td><%= ticket.details  %> </td>
         <td><%= ticket.problems %> </td>  
         <td><%= ticket.severity %> </td>
-
-        <td> <a href="tickes/details">Detail</a></td>
-
+        <td><%= ticket._id  %> </td>
+        <td>  <a href="/tickets/<%= ticket._id %>">detail</td>
+          <% if(user){%> 
+            <td><form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST"  >
+            <button>X</button></form></td>
+          <%} %> 
     </tr>
       <% }) %> 
 

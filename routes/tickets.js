@@ -8,6 +8,7 @@ router.get('/', ticketsCtrl.index)
 router.get('/new',ticketsCtrl.new)
 router.post('/', isLoggedIn,ticketsCtrl.create)
 router.get('/:id', isLoggedIn,ticketsCtrl.show)
+router.delete('/:id',isLoggedIn ,ticketsCtrl.delete)
 export{
   router
 }
