@@ -81,6 +81,7 @@ function edit(req, res) {
   })
   .catch(error => {
     console.log('thewres no edit: ',error);
+    res.redirect('/tickets')
   })
 
 
