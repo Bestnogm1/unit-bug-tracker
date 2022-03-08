@@ -1,44 +1,32 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.min.css" integrity="sha512-Xj2sd25G+JgJYwo0cvlGWXoUekbLg5WvW+VbItCMdXrDoZRWcS/d40ieFHu77vP0dF5PK+cX6TIp+DsPfZomhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<main> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<main>
 <%= title %>
 <h1>this is the tickets page</h1> 
 <a href="/tickets/new">new</a>
 
 
 <% tickets.forEach((ticket)=>{ %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">AssingedTo:<%= ticket.assingedTo %></h5>
+      <h5 class="time"><%= ticket.createdAt.toLocaleDateString()%></h5>
+      <h5 clas="problem">Problem type: <%= ticket.problems %> </h5>
+      <h5 class="Severity"><%= ticket.severity %> </h5>
+      <h5 class="ID">ID <%= ticket._id  %> </h5>
+      <p class="card-text"><%= ticket.details  %></p>
 
-<div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-
-    <h5 class="card-title">AssingedTo:<%= ticket.assingedTo %></h5>
-
-    <h5 class="time"><%= ticket.createdAt.toLocaleDateString()%></h5>
-
-    <h5 clas="problem">Problem type: <%= ticket.problems %> </h5>
-
-    <h5 class="Severity"><%= ticket.severity %> </h5>
-    <h5 class="ID">ID <%= ticket._id  %> </h5>
-    
-    <p class="card-text"><%= ticket.details  %></p>
-
-    <a href="/tickets/<%= ticket._id %>" class="card-link"> Detail</a> </a>
-    <button c> 
-    <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> edit</a>
-    </button>
-    <h5 class="deleteButton">
+      <a href="/tickets/<%= ticket._id %>" class="card-link"> Detail</a> </a>
+      <a href="/tickets/<%= ticket._id %>/edit" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">edit</a>
+      <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> edit</a>
+      <h5 class="deleteButton">
     <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
       <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
       <button class="btn btn-warning">Delete</button></form>
     <%} %>
     </h5>
+    </div>
   </div>
-</div>
-  
-
-      <% }) %>
-      
-
+<% }) %>
 </main>
 <script src="app.js"></script>
 
