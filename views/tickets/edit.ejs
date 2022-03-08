@@ -2,8 +2,8 @@
   <a href="/tickets/edit"> main</a>
   
   
-  <h1>add tickets</h1>
-  <form clearaction="/edit/<%= ticket._id %>?_method=PUT" method="POST" >
+  <h1><%= title %> </h1>
+  <form action="/tickets/<%= ticket._id %>?_method=PUT" method="POST" >
   
     <label>assigned to </label>
     <input type="text" name="assingedTo"  required>
@@ -22,8 +22,8 @@
       <option value="Software">Software</option>
       <option value="Hardware">Hardware</option>
     </select>
-  <% if(user){ %>
-    <button type="submit">add ticket</button>
+  <% if(ticket.owner._id.toString() === user.profile._id.toString()){ %>
+    <button type="submit">edit ticket</button>
     <% } %> 
   </form>
   </main>

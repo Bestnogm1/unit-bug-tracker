@@ -71,12 +71,16 @@ function deleteTicket(req, res) {
     }
   })
 }
+
 function edit(req, res) {
+  // console.log('this is wrong',req);
   Ticket.findById(req.params.id)
+  
   .then(ticket => {
     res.render('tickets/edit',{
+      
     ticket,
-    title: 'we are edditing it '
+    title: 'we are editing it '
     })
   })
   .catch(error => {
@@ -86,13 +90,13 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-Ticket.findById(req.params.id)
-.then(ticket => {
+  Ticket.findByIdAndUpdate(req.params.id)
+  .then(ticket => {
   if(ticket.owner.equals(req.user.profile._id)){
-  ticket.updateOne(req.bo, {new: true})
+  ticket.updateOne(req.body,{new: false})
+  
   .then(()=>{
-    res.redirect(`/tickets${ticket._id}`)
-    
+    res.redirect(`/tickets/`)
   })
   } else {
     throw  new error ('can not update')

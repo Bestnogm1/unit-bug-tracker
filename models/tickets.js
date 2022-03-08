@@ -19,8 +19,9 @@ const ticketsSchema = new mongoose.Schema({
     type:Date,
     default: Date.now
 },
+  edit: Boolean,
   },{
-   timestamps: true
+  timestamps: true
 })
 
 
