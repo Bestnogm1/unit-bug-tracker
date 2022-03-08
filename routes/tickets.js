@@ -9,7 +9,7 @@ router.get('/new',ticketsCtrl.new)
 router.post('/', isLoggedIn,ticketsCtrl.create)
 router.get('/:id', isLoggedIn,ticketsCtrl.show)
 router.delete('/:id',isLoggedIn ,ticketsCtrl.delete)
-
+router.get('/:id/edit',isLoggedIn,ticketsCtrl.edit)
 export{
   router
 }

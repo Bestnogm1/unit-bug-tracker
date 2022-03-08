@@ -71,12 +71,26 @@ function deleteTicket(req, res) {
     }
   })
 }
+function edit(req, res) {
+  Ticket.findById(req.params.id)
+  .then(ticket => {
+    res.render('tickets/edit',{
+    ticket,
+    title: 'we are edditing it '
+    })
+  })
+  .catch(error => {
+    console.log('thewres no edit: ',error);
+  })
 
+
+}
 
 export{
   index,
   newTicket as new,
   create,
   show,
-  deleteTicket as delete
+  deleteTicket as delete,
+  edit
 }
