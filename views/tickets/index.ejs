@@ -15,37 +15,19 @@
 
     <h5 class="time"><%= ticket.createdAt.toLocaleDateString()%></h5>
 
-    <h5 clas="problem"> <%= ticket.problems %> </h5>
+    <h5 clas="problem">Problem type: <%= ticket.problems %> </h5>
 
     <h5 class="Severity"><%= ticket.severity %> </h5>
+    <h5 class="ID">ID <%= ticket._id  %> </h5>
     
     <p class="card-text"><%= ticket.details  %></p>
 
-    <a href="#" class="card-link">Card link</a>
+    <a href="/tickets/<%= ticket._id %>" class="card-link"> Detail</a> </a>
 
     <a href="#" class="card-link">Another link</a>
+    <a href="#" class="card-link">Delete link</a>
   </div>
 </div>
-<table>
-    <thead> 
-      <tr>
-        <th>assingedTo</th>
-        <th>details</th>
-        <th>Problems</th>
-        <th>Severity</th>
-        <th>ID</th>
-        <th>date</th>
-        <th>detail</th>
-      </tr>
-    </thead>
-    <tr>
-      
-        <td><%= ticket.assingedTo %> </td>
-        <td><%= ticket.details  %> </td>
-        <td><%= ticket.problems %> </td>  
-        <td><%= ticket.severity %> </td>
-        <td><%= ticket._id  %> </td>
-        <td><%= ticket.createdAt.toLocaleDateString()%> </td>
         <td>  <a href="/tickets/<%= ticket._id %>">detail</td>
           <td><a href="/tickets/<%= ticket._id %>/edit">edit </a></td>
           <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
