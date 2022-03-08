@@ -1,10 +1,9 @@
+
 import { Router } from 'express'
-import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
+import { isLoggedIn } from '../middleware/middleware.js'
 import * as commentCrtl from '../middleware/comment'
-
-
-router.get('/',commentCrtl.index)
+router.get('/', isLoggedIn, commentCrtl.index)
 export {
   router
 }
