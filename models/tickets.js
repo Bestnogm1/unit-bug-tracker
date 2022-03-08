@@ -11,9 +11,16 @@ const ticketsSchema = new mongoose.Schema({
     type: String,
     enum: ['Urgent', 'High', 'Normal', 'Low']
   },
+  date: Date.parse(),
   owner: {
     type: mongoose.Schema.Types.ObjectId, 'ref': 'Profile'
-  }
+  },
+  createdAt:{
+    type:Date,
+    default: Date.now
+},
+  },{
+   timestamps: true
 })
 
 

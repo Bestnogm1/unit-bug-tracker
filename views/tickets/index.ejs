@@ -14,6 +14,7 @@
         <th>Problems</th>
         <th>Severity</th>
         <th>ID</th>
+        <th>date</th>
         <th>detail</th>
       </tr>
     </thead>
@@ -24,18 +25,19 @@
         <td><%= ticket.problems %> </td>  
         <td><%= ticket.severity %> </td>
         <td><%= ticket._id  %> </td>
+        <td><%= ticket.createdAt.toLocaleDateString()%> </td>
         <td>  <a href="/tickets/<%= ticket._id %>">detail</td>
           <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
             <td><form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
             <button>X</button></form></td>
           <%} %>
     </tr>
-      <% }) %> 
-
+      <% }) %>
       
 </table>
 
 </main>
+<script src="app.js"></script>
 
 
 
