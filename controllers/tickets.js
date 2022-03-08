@@ -80,12 +80,30 @@ function edit(req, res) {
     })
   })
   .catch(error => {
-    console.log('thewres no edit: ',error);
+    console.log('theres no edit: ',error);
     res.redirect('/tickets')
   })
-
-
 }
+
+function update(req, res) {
+Ticket.findById(req.params.id)
+.then(ticket => {
+  if(ticket.owner.equals(req.user.profile._id)){
+  ticket.updateOne(req.bo, {new: true})
+  .then(()=>{
+    res.redirect(`/tickets${ticket._id}`)
+    
+  })
+  } else {
+    throw  new error ('can not update')
+  }
+  })
+  .catch(error => {
+    console.log(error);
+    res.redirect('/tickets')
+  })
+}
+
 
 export{
   index,
@@ -93,5 +111,6 @@ export{
   create,
   show,
   deleteTicket as delete,
-  edit
+  edit,
+  update,
 }
