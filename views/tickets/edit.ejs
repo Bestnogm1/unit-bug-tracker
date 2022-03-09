@@ -9,7 +9,7 @@
     <input type="text" name="assingedTo"  required value="<%=ticket.assingedTo%>" >
   
     <label>details </label>
-    <input type="text" name="details"  required>
+    <input type="text" name="details"  required value="<%=ticket.details%>">
   
     <select name="severity"  required>
       <option value=""selected disable hidden><%=ticket.severity %>  </option>
@@ -20,6 +20,7 @@
     </select>
   
     <select name="problems" required >
+      <option value=""selected disable hidden><%=ticket.problems %>  </option>
       <option value="Software">Software</option>
       <option value="Hardware">Hardware</option>
     </select>
