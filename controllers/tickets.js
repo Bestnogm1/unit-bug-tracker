@@ -78,7 +78,6 @@ function edit(req, res) {
   
   .then(ticket => {
     res.render('tickets/edit',{
-      
     ticket,
     title: 'we are editing it '
     })
@@ -93,10 +92,10 @@ function update(req, res) {
   Ticket.findByIdAndUpdate(req.params.id)
   .then(ticket => {
   if(ticket.owner.equals(req.user.profile._id)){
-  ticket.updateOne(req.body,{new: false})
+  ticket.updateOne(req.body,)
   
   .then(()=>{
-    res.redirect(`/tickets/`)
+    res.redirect(`/tickets`)
   })
   } else {
     throw  new error ('can not update')

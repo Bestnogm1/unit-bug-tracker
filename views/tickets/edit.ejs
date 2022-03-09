@@ -6,13 +6,14 @@
   <form action="/tickets/<%= ticket._id %>?_method=PUT" method="POST" >
   
     <label>assigned to </label>
-    <input type="text" name="assingedTo"  required>
+    <input type="text" name="assingedTo"  required value="<%=ticket.assingedTo%>" >
   
     <label>details </label>
     <input type="text" name="details"  required>
   
     <select name="severity"  required>
-      <option value="Urgent"> Urgent</option>
+      <option value=""selected disable hidden><%=ticket.severity %>  </option>
+      <option value="Urgent" > Urgent</option>
       <option value="High"> High </option>
       <option value="Normal"> Normal </option>
       <option value="Low"> Low </option>
@@ -27,3 +28,4 @@
     <% } %> 
   </form>
   </main>
+  <%- include('../partials/footer') %>
