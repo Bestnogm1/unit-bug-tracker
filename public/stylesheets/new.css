@@ -3,11 +3,22 @@ body{
   margin-left: auto;
   margin-right: auto;
   width: 40%;
- 
+  padding-top: 80px;
 }
+
 .container{
+  display: flex;
+  flex-direction: column;
   background-color: blue;
-  width: 50em;
-
-
+  width: 50vw;
+  height:80vh;
+  height: calc(fit-content + 10vh);
+  min-height: fit-content;
+  border-radius:20px
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* min-height: fit-content; */
 }
