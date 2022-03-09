@@ -106,7 +106,14 @@ function update(req, res) {
     res.redirect('/tickets')
   })
 }
-
+function addComment(req, res,) {
+  Ticket.findById(req.params.id ,function(error, ticket){
+    ticket.addComment.push(req.body)
+    ticket.save(function(error){
+        res.redirect(`/tickets/${flight._id}`)
+    })
+  })
+}
 
 export{
   index,
@@ -116,4 +123,5 @@ export{
   deleteTicket as delete,
   edit,
   update,
+  addComment
 }
