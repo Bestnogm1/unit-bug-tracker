@@ -17,7 +17,7 @@
       <p class="card-text"><%= ticket.details  %></p>
       <a href="/tickets/<%= ticket._id %>" class="card-link"> Detail</a> </a>
       <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> edit</a>
-      <a href="/comments/sections"> comments</a>
+      <a href="/tickets/<%= ticket._id %>\comments"> comments</a>
       <h5 class="deleteButton">
     <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
       <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">

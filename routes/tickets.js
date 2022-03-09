@@ -12,7 +12,7 @@ router.delete('/:id',isLoggedIn ,ticketsCtrl.delete)
 router.get('/:id/edit',isLoggedIn,ticketsCtrl.edit)
 router.put('/:id',isLoggedIn,ticketsCtrl.update)
 router.post('/:id/comments', ticketsCtrl.addComment);
-
+router.get('/comments',ticketsCtrl.comments);
 export{
   router
 }

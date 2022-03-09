@@ -143,5 +143,5 @@ export{
   edit,
   update,
   addComment,
-  // comments 
+  comments 
 }
