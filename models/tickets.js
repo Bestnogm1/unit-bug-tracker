@@ -15,8 +15,8 @@ const ticketsSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId, 'ref': 'Profile'
   },
-  comment: {
-    type: mongoose.Schema.Types.ObjectId, ref: 'Comment'},
+  // comment: {
+  //   type: mongoose.Schema.Types.ObjectId, ref: 'Comment'},
   createdAt:{
     type:Date,
     default: Date.now

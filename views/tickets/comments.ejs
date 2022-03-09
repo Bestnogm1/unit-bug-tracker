@@ -1,0 +1,30 @@
+
+
+
+<%- include('../partials/newNav') %>
+
+
+<h1>this is the coemmnts</h1>
+<div class="card-conttainer"> 
+  <% tickets.forEach((ticket)=>{ %>
+    <div class="card" style="width: 18rem;" id="cards">
+      <div class="card-body">
+        <h3 class="card-title">AssingedTo:<%= ticket.assingedTo %></h5>
+        <h6 class="time"><%= ticket.createdAt.toLocaleDateString()%></h5>
+        <h6 clas="problem">Problem type: <%= ticket.problems %> </h5>
+        <h6 class="Severity"><%= ticket.severity %> </h5>
+        <h9 class="ID">ID <%= ticket._id  %> </h5>
+        <p class="card-text"><%= ticket.details  %></p>
+        <a href="/tickets/<%= ticket._id %>" class="card-link"> Detail</a> </a>
+        <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> edit</a>
+        <a href="/comments/sections"> comments</a>
+        <h5 class="deleteButton">
+      <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
+        <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-warning">Delete</button></form>
+      <%} %>
+      </h5>
+      </div>
+    </div>
+  <% }) %>
+  </div>

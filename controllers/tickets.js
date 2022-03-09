@@ -1,7 +1,7 @@
 import { Ticket } from '../models/tickets.js'
 
 
-function index(req, res) {
+function index(req, res,) {
   Ticket.find({}) 
   .then(tickets =>{
     res.render('tickets/index', {
@@ -13,8 +13,26 @@ function index(req, res) {
     console.log(err);
     res.redirect('/tickets')
   })
+}
+
+function comments(req, res) {
+  Ticket.find({}) 
+  .then(tickets =>{
+    res.render('tickets/comments', {
+      tickets,
+      title:"helolo"
+    })
+  })
+  .catch(err =>{
+    console.log(err);
+    res.redirect('/tickets')
+  })
   
 }
+
+
+
+
 
 function newTicket(req, res) {
   res.render('tickets/new')
@@ -115,6 +133,7 @@ function addComment(req, res,) {
   })
 }
 
+
 export{
   index,
   newTicket as new,
@@ -123,5 +142,6 @@ export{
   deleteTicket as delete,
   edit,
   update,
-  addComment
+  addComment,
+  // comments 
 }
