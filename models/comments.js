@@ -1,17 +1,20 @@
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 
-const commentSchema = new mongoose.Schema({
-  name: String,
-  createdAt:{
-    type:Date,
-    default: Date.now},
-  comment: String,
-}, {
-  timestamps: true
-})
+// const commentSchema = new mongoose.Schema({
+//   name: String,
+//   createdAt:{
+//     type:Date,
+//     default: Date.now},
+//   comment: String,
 
-const Comment = mongoose.model('Comment', commentSchema)
+//   addedTickets: { 
+//     type: mongoose.Schema.Types.ObjectId, 'ref': 'Ticket' }
+// }, {
+//   timestamps: true
+// })
 
-export {
-  Comment
-}
+// const Comment = mongoose.model('Comment', commentSchema)
+
+// export {
+//   Comment
+// }

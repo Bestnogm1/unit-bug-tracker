@@ -1,5 +1,19 @@
 import mongoose from 'mongoose'
 
+
+const commentSchema = new mongoose.Schema({
+  name: String,
+  createdAt:{
+    type:Date,
+    default: Date.now},
+  comment: String,
+}, {
+  timestamps: true
+})
+
+
+
+
 const ticketsSchema = new mongoose.Schema({
   assingedTo: String,
   details: String,
@@ -19,6 +33,7 @@ const ticketsSchema = new mongoose.Schema({
     type:Date,
     default: Date.now
 },
+  
   edit: Boolean,
   },{
   timestamps: true
