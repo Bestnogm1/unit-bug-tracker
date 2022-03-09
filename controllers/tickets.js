@@ -58,7 +58,7 @@ function show(req, res) {
     // console.log(ticket)
     res.render('tickets/details', {
       ticket,
-      title: "🌮 show"
+      
     })
   })
   .catch(err => {
@@ -124,15 +124,29 @@ function update(req, res) {
     res.redirect('/tickets')
   })
 }
-function addComment(req, res,) {
-  Ticket.findById(req.params.id ,function(error, ticket){
-    ticket.addComment.push(req.body)
-    ticket.save(function(error){
-        res.redirect(`/tickets/${flight._id}`)
+// function commentTickets(req, res,) {
+//   Ticket.findById(req.params.id ,function(error, ticket){
+//     ticket.tickets.push(req.body)
+//     ticket.save(function(error){
+//         res.redirect(`/tickets/${flight._id}`)
+//     })
+//   })
+// }
+function commentTickets(req, res) {
+  Ticket.findById(req.params.id)
+  .populate("owner")
+  .then(ticket => {
+    // console.log(ticket)
+    res.render('tickets/comments', {
+      ticket,
+
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/tickets')
+  })
 }
-
 
 export{
   index,
@@ -142,6 +156,6 @@ export{
   deleteTicket as delete,
   edit,
   update,
-  addComment,
-  comments 
+  commentTickets,
+  // comments 
 }
