@@ -1,3 +1,11 @@
-h1{
-  color: blue;
+body{
+  position: absolute;
+  text-align: center;
+  padding-right: 50em;
+  margin-left:20em;
+}
+.container{
+  background-color: blue;
+
+
 }
