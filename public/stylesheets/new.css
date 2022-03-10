@@ -51,6 +51,11 @@ background: #fff;
 color: #339dff;
 box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
 }
+form{
+  display: flex;
+  flex-direction: column;
+  
+}
 button {
 background: #339dff;
 color: #fff;
@@ -78,3 +83,6 @@ width: 27em;
 height: 33px;
 }
 
+.total-container{
+  display: flex;
+}

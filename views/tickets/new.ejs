@@ -1,29 +1,31 @@
 
+  <%- include('../partials/newNav') %>
 <link rel="stylesheet" href="/stylesheets/new.css">
-
-<!-- <a href="/tickets"> main</a> -->
+<link rel="stylesheet" href="/stylesheets/newNav.css">
 
 <div class="container">  
-<h1>add tickets</h1>
-<form method="POST" action="/tickets">
-  <label>assigned to </label>
-  <input type="text" name="assingedTo"  required>
-  <label>details </label>
-  <input type="text" name="details"  required>
-  <label>assigned to </label>
-  <select name="severity"  required>
-    <option value="Urgent"> Urgent</option>
-    <option value="High"> High </option>
-    <option value="Normal"> Normal </option>
-    <option value="Low"> Low </option>
-  </select>
-  <label>assigned to </label>
-  <select name="problems" required >
-    <option value="Software">Software</option>
-    <option value="Hardware">Hardware</option>
-  </select>
-<% if(user){ %>
-  <button type="submit">add ticket</button>
-  <% } %> 
-</form>
+  <div> 
+  <h1>add tickets</h1>
+  </div>
+  <form method="POST" action="/tickets">
+    <label>assigned to </label>
+    <input type="text" name="assingedTo"  required>
+    <label>details </label>
+    <input type="text" name="details"  required>
+    <label>assigned to </label>
+    <select name="severity"  required>
+      <option value="Urgent"> Urgent</option>
+      <option value="High"> High </option>
+      <option value="Normal"> Normal </option>
+      <option value="Low"> Low </option>
+    </select>
+    <label>assigned to </label>
+    <select name="problems" required >
+      <option value="Software">Software</option>
+      <option value="Hardware">Hardware</option>
+    </select>
+    <% if(user){ %>
+      <button type="submit">add ticket</button>
+    <% } %> 
+  </form>
 </div>  
