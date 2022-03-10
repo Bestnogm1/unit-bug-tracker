@@ -78,16 +78,33 @@ function show(req, res) {
       })
     })
   }
+  // function addcomments(req, res){
+  //   Ticket.findById(req.params.id,function(error, ticket){
+  //     ticket.comments.own
+  //     .er = req.user.name
+  //     console.log('hey',ticket);
+  //     ticket.comments.push(req.body)
+  //     ticket.save(function(error){
+  //       res.redirect(`/tickets/${ticket._id}`)
+  //     })
+  //   })
+  // }
+
   function addcomments(req, res){
-    
-    Ticket.findById(req.params.id,function(error, ticket){
-      console.log('here',res);
+    Ticket.findById(req.params.id)
+    .populate( 'owner')
+    .then(ticket => {
+      ticket.comments.owner = req.user.name
+      console.log('hey',ticket);
       ticket.comments.push(req.body)
       ticket.save(function(error){
-        res.redirect(`tickets/${ticket._id}`)
-      })
+        res.redirect(`/tickets/${ticket._id}`,{ticket})
+      
     })
+  })
+  .catch(err =>{ console.log(err);})
   }
+
 
 
 // function show(req, res) {

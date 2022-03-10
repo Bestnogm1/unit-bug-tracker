@@ -19,12 +19,16 @@
 <h1><%= ticket._id  %></h1>
 <h1>time</h1>
 <td><%= ticket.createdAt.toLocaleDateString()%> </td>
+
 <form method="POST" action="/tickets/<%=ticket._id%>/comments"> 
     <input type="text" name="answer" placeholder=" comments" required> 
     <button type="submit"> add</button>
 </form>
 <% ticket.comments.forEach(function(comment) { %>
+
     <h1> <%= comment.answer %> </h1>
+    <%= ticket.comments.owner.name %>
 <%}) %> 
+
 
 
