@@ -1,5 +1,16 @@
 import mongoose from 'mongoose'
 
+const Schema = mongoose.Schema
+
+const commentSchema = new mongoose.Schema({
+  createdAt:{
+    type:Date,
+    default: Date.now},
+  answer: String,
+}, {
+  timestamps: true
+})
+
 const ticketsSchema = new mongoose.Schema({
   assingedTo: String,
   details: String,
@@ -12,11 +23,13 @@ const ticketsSchema = new mongoose.Schema({
     enum: ['Urgent', 'High', 'Normal', 'Low']
   },
   date: Date.parse(),
+  comments: [commentSchema],
+
   owner: {
     type: mongoose.Schema.Types.ObjectId, 'ref': 'Profile'
   },
-  // comment: {
-  //   type: mongoose.Schema.Types.ObjectId, ref: 'Comment'},
+
+
   createdAt:{
     type:Date,
     default: Date.now

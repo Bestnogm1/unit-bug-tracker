@@ -11,8 +11,12 @@ router.get('/:id', isLoggedIn,ticketsCtrl.show)
 router.delete('/:id',isLoggedIn ,ticketsCtrl.delete)
 router.get('/:id/edit',isLoggedIn,ticketsCtrl.edit)
 router.put('/:id',isLoggedIn,ticketsCtrl.update)
+router.post('/:id/comments',isLoggedIn, ticketsCtrl.addcomments)
+
+
 // router.post('/:id/comments', ticketsCtrl.comments);
-router.get('/:id/comments', ticketsCtrl.commentTickets);
+
+
 // router.get('/comments',ticketsCtrl.comments);
 export{
   router

@@ -51,21 +51,67 @@ function create(req, res){
   })
 }
 
+// function show(req, res) {
+//   Ticket.findById(req.params.id)
+//   .populate('comments')
+//   .populate("owner")
+//   .then(ticket => {
+//     // console.log(ticket)
+//     res.render('tickets/details', {
+//       ticket,
+      
+//     })
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect('/tickets')
+//   })
+// }
 function show(req, res) {
   Ticket.findById(req.params.id)
-  .populate("owner")
-  .then(ticket => {
-    // console.log(ticket)
-    res.render('tickets/details', {
-      ticket,
-      
+  .populate([ 'owner', 'comments'
+  ])
+    .then(ticket => {
+      res.render('tickets/details', {
+        ticket
+        
+      })
     })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/tickets')
-  })
-}
+  }
+  function addcomments(req, res){
+    
+    Ticket.findById(req.params.id,function(error, ticket){
+      console.log('here',res);
+      ticket.comments.push(req.body)
+      ticket.save(function(error){
+        res.redirect(`tickets/${ticket._id}`)
+      })
+    })
+  }
+
+
+// function show(req, res) {
+// 	Book.findById(req.params.id)
+// 		.populate([{
+// 			path: "reviews",
+// 			populate: {
+// 				path: "reviewer"
+// 			},
+// 		},
+// 			{
+// 				path: "availableFrom"
+// 			}])
+// 		.then(book => {
+// 					res.render("books/show", {
+// 						title: book.title,
+// 						book,
+// 					})
+// 				})
+// 		.catch(err => {
+// 			console.log(err);
+// 			res.redirect("/books");
+// 		});
+// }
 
 function deleteTicket(req, res) {
   req.body.owner = req.user.profile._id
@@ -124,29 +170,8 @@ function update(req, res) {
     res.redirect('/tickets')
   })
 }
-// function commentTickets(req, res,) {
-//   Ticket.findById(req.params.id ,function(error, ticket){
-//     ticket.tickets.push(req.body)
-//     ticket.save(function(error){
-//         res.redirect(`/tickets/${flight._id}`)
-//     })
-//   })
-// }
-function commentTickets(req, res) {
-  Ticket.findById(req.params.id)
-  .populate("owner")
-  .then(ticket => {
-    // console.log(ticket)
-    res.render('tickets/comments', {
-      ticket,
 
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/tickets')
-  })
-}
+
 
 export{
   index,
@@ -156,6 +181,6 @@ export{
   deleteTicket as delete,
   edit,
   update,
-  commentTickets,
-  // comments 
+  addcomments,
+  
 }
