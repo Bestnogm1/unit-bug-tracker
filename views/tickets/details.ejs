@@ -1,6 +1,11 @@
+
+
+
 <%- include('../partials/newNav') %>
 
 <link rel="stylesheet" href="/stylesheets/newNav.css">
+
+
 <% if (ticket.owner.avatar) { %>
   <div>
     <h1>request made by<%= ticket.owner.name %></h1>
@@ -27,7 +32,8 @@
 <% ticket.comments.forEach(function(comment) { %>
 
     <h1> <%= comment.answer %> </h1>
-    <%= ticket.comments.owner.name %>
+    <p> <%= comment.owner %></p>
+    
 <%}) %> 
 
 

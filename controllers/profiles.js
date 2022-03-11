@@ -11,6 +11,8 @@ function index(req, res) {
     res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
+
 export{
-  index
+  index,
+  
 }

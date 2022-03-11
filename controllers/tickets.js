@@ -6,7 +6,7 @@ function index(req, res,) {
   .then(tickets =>{
     res.render('tickets/index', {
       tickets,
-      title:"helolo"
+      title:"tickets"
     })
   })
   .catch(err =>{
@@ -15,20 +15,7 @@ function index(req, res,) {
   })
 }
 
-function comments(req, res) {
-  Ticket.find({}) 
-  .then(tickets =>{
-    res.render('tickets/comments', {
-      tickets,
-      title:"helolo"
-    })
-  })
-  .catch(err =>{
-    console.log(err);
-    res.redirect('/tickets')
-  })
-  
-}
+
 
 
 
@@ -51,22 +38,6 @@ function create(req, res){
   })
 }
 
-// function show(req, res) {
-//   Ticket.findById(req.params.id)
-//   .populate('comments')
-//   .populate("owner")
-//   .then(ticket => {
-//     // console.log(ticket)
-//     res.render('tickets/details', {
-//       ticket,
-      
-//     })
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/tickets')
-//   })
-// }
 function show(req, res) {
   Ticket.findById(req.params.id)
   .populate([ 'owner', 'comments'
@@ -78,57 +49,24 @@ function show(req, res) {
       })
     })
   }
-  // function addcomments(req, res){
-  //   Ticket.findById(req.params.id,function(error, ticket){
-  //     ticket.comments.own
-  //     .er = req.user.name
-  //     console.log('hey',ticket);
-  //     ticket.comments.push(req.body)
-  //     ticket.save(function(error){
-  //       res.redirect(`/tickets/${ticket._id}`)
-  //     })
-  //   })
-  // }
 
-  function addcomments(req, res){
+
+  function addcomments(req, res){  
     Ticket.findById(req.params.id)
-    .populate( 'owner')
+    .populate('owner')
     .then(ticket => {
-      ticket.comments.owner = req.user.name
-      console.log('hey',ticket);
+      req.body.owner = req.user.profile.name
+      ticket.comments.owner = req.user.profile.name
+      console.log('hey',req.user.profile.name);
       ticket.comments.push(req.body)
       ticket.save(function(error){
-        res.redirect(`/tickets/${ticket._id}`,{ticket})
+        res.redirect(`/tickets/${ticket._id}`)
       
     })
   })
   .catch(err =>{ console.log(err);})
   }
 
-
-
-// function show(req, res) {
-// 	Book.findById(req.params.id)
-// 		.populate([{
-// 			path: "reviews",
-// 			populate: {
-// 				path: "reviewer"
-// 			},
-// 		},
-// 			{
-// 				path: "availableFrom"
-// 			}])
-// 		.then(book => {
-// 					res.render("books/show", {
-// 						title: book.title,
-// 						book,
-// 					})
-// 				})
-// 		.catch(err => {
-// 			console.log(err);
-// 			res.redirect("/books");
-// 		});
-// }
 
 function deleteTicket(req, res) {
   req.body.owner = req.user.profile._id
@@ -154,9 +92,7 @@ function deleteTicket(req, res) {
 }
 
 function edit(req, res) {
-  // console.log('this is wrong',req);
   Ticket.findById(req.params.id)
-  
   .then(ticket => {
     res.render('tickets/edit',{
     ticket,
@@ -174,7 +110,6 @@ function update(req, res) {
   .then(ticket => {
   if(ticket.owner.equals(req.user.profile._id)){
   ticket.updateOne(req.body,)
-  
   .then(()=>{
     res.redirect(`/tickets`)
   })

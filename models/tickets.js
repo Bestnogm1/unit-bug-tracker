@@ -7,7 +7,9 @@ const commentSchema = new mongoose.Schema({
     type:Date,
     default: Date.now},
   answer: String,
-  owner: String,
+  owner: {
+    type: String
+  }
   
 }, {
   timestamps: true

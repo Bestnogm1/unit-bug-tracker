@@ -17,27 +17,67 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: rgb(238, 227, 227);
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   margin: 0;
 }
 
-nav {
-  background-color: white;
+/* nav {
+  background-color: red;
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
-}
+} */
 
 main {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 400px;
 }
 
 h1 {
-  font-size: 3.6rem;
+  font-size:  75px ;
+}
+
+/* nav {
+  display: flex;
+  justify-content: center;
+} */
+
+
+body {
+  min-height: 100vh;
+  background: #dfe4f7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+
+.anv {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+}
+
+button{
+  height:30px
 }
