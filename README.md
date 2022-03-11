@@ -6,6 +6,7 @@ A bug tracking system or defect tracking system is a software application that k
 Picture:![board](./public/board.jpg)
 Picture:![alt text](./public/tickets.jpg)
 
+[Bug Tracker](https://computer-tracker-bugs.herokuapp.com/)
 
 ## Technologies Used:
 #### 1.HTML
