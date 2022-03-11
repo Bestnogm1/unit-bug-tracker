@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "nodemon ./bin/www.js"
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
     "date-and-time": "^2.2.1",
