@@ -3,8 +3,8 @@
 ### What is a Bug-tracker?
 A bug tracking system or defect tracking system is a software application that keeps track of reported software and hardware bugs 
 
-Picture:![alt text](images/board.jpg)
-Picture:![alt text](public/images/tickets.jpg)
+Picture:![board](./public/board.jpg)
+Picture:![alt text](./public/tickets.jpg)
 
 
 ## Technologies Used:
@@ -16,5 +16,5 @@ Picture:![alt text](public/images/tickets.jpg)
 #### 6. Node
 
 # Future Plans
-In the future I plan to add an Admin user
-  
+In the future I plan to add an Admin user and add profile page where the 
+user can see all the tickets they've made 
