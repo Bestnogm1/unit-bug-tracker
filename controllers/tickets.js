@@ -15,12 +15,6 @@ function index(req, res,) {
   })
 }
 
-
-
-
-
-
-
 function newTicket(req, res) {
   res.render('tickets/new')
 }
