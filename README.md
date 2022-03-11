@@ -5,3 +5,16 @@ A bug tracking system or defect tracking system is a software application that k
 
 Picture:![alt text](images/board.jpg)
 Picture:![alt text](public/images/tickets.jpg)
+
+
+## Technologies Used:
+#### 1.HTML
+#### 2.CSS
+#### 3.JavaScript
+#### 4.Heroku
+#### 5. Express
+#### 6. Node
+
+# Future Plans
+In the future I plan to add an Admin user
+  
