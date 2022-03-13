@@ -33,14 +33,13 @@ const ticketsSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId, 'ref': 'Profile'
   },
 
-
   createdAt:{
     type:Date,
     default: Date.now
 },
 
   },{
-   timestamps: true
+  timestamps: true
 })
 
 
