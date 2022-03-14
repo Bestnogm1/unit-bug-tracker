@@ -21,7 +21,7 @@
         <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> <button> edit</button></a>
     <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
       <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
-      <button class="button">Delete</button></form>
+      <button  class="button">Delete</button></form>
     <%} %>
     </div>
   </div>

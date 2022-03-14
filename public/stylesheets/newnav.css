@@ -1,4 +1,6 @@
-
+header{
+  height: 105px;
+}
 .flex-container {
   position:absolute;
   top:0;

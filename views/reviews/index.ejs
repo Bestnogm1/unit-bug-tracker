@@ -1,36 +1,59 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/reviews.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <%- include('../partials/newNav') %>
 
-<link rel="stylesheet" href="/stylesheets/reviews.css">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<div class="reviews-class"> 
-      <h1 class="add-a-review"> Add A Review</h1>
-      <form method="POST" action="/reviews"> 
-            <select  name="rating" >
-      <option value="5">5</option>
-      <option value="4">4</option>
-      <option value="3">3</option>
-      <option value="2">2</option>
-      <option value="1">1</option>
-    </select>
-        <input type="text" name="reviews" placeholder=" " required> 
-        <button type="submit" class="btn btn-primary">Primary</button>
-    </form>
-    <% reviews.forEach(function(review) { %>
- 
-  <div class="inside-card">  
-  <div class="card">
-    <div class="card-header">
-      <%= review.owner %>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= review.rating %> </h5>
-      <div class="date-text"> 
-      <p class="card-text"><%= review.reviews %></p>
-      <p class="time"> <%=review.createdAt.toLocaleDateString()%></p>
+<main class="reviews">
+  <section class="add-review">
+    <h1>Add Reviews</h1>
+    <form action="/reviews" method="POST">
+      <input type="hidden" name="owner" value=<%= user.profile._id %> >
+      <div class="label-control"> 
+        <label for="rating">Rating</label>
+        <select name="rating" id="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
       </div>
+      <div class="label-control"> 
+      <label for="review">Review</label>
+      <input type="text" name="review" id="review" required>
+      </div>
+      <div class="label-control"> 
+        <button class="submit btn btn-primary" type="submit">Add Review</button>
+      </div>
+    </form>
+  </section>
+  <section class="customer-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="card-wrapper"> 
+      <% reviews.forEach(review => { %>
+        <div class="card">
+          <p><span><%= review.owner.name %> </span> left this review <em><%= dayjs(review.createdAt).fromNow() %></em></p>
+          <div class="star"> 
+            <% for( let index = 0; index < review.rating; index++ ) { %>
+            
+              <i class="fa-solid fa-star"></i>
+            <% } %>
+          </div>
+          <p class="review-card-body"><%= review.review %></p>
+          <% if (review.owner._id.toString() === user.profile._id.toString()) { %>
+            <form action="/reviews/<%= review._id %>/?_method=DELETE" method="POST"> 
+            <div class="btn-wrap">
+            <button class="btn btn-outline-danger" type="submit"> Delete Review</button>
+            </form>
+            </div>
+          
+          <% } %>
+        </div>
+        
+      <% }) %>
     </div>
-  </div> 
-</div>
-  <%}) %> 
-</div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

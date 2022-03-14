@@ -1,0 +1,41 @@
+body{
+  display: flex;
+  padding-top:10rem;
+  padding-left:40rem;
+  gap:2rem;
+}
+.details{
+  border: 11px solid green;
+  width:50%;
+  padding-left:40px;
+  height:60rem
+}
+.comment{
+  border: 1px solid;
+  height: 0rem;
+  width:33rem;
+}
+.add-answer{
+  border: 1px solid;
+  padding-top:10rem;
+}
+.card-header{
+  display: flex;
+  gap: 10rem;
+}
+
+.delete-answer{
+  display: flex;
+  width:100%;
+  border: 1px solid;
+  justify-content: flex-end; ;
+
+}
+#card-comment{
+  border: 6px solid
+}
+.main-conments{
+  border: 1px solid red;
+  overflow: scroll;
+
+}
