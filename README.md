@@ -2,7 +2,7 @@
 ### How To get started
   First click on the Bug Tracker Link Down bellow 
   The link should be Bring you to a Sign in page signed 
-  in with oauth Once you are signed in create Add a ticket 
+  in with oauth Once you are signed in create  a ticket 
 ### What is a Bug-tracker?
 A bug tracking system or defect tracking system is a software application that keeps track of reported software and hardware bugs 
 
