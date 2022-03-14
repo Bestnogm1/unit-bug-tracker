@@ -1,41 +1,79 @@
 body{
   display: flex;
-  padding-top:10rem;
+  padding-top:15rem;
   padding-left:40rem;
   gap:2rem;
+  flex-direction: row;
 }
 .details{
-  border: 11px solid green;
-  width:50%;
+  border: 1px solid green;
+  width:40%;
   padding-left:40px;
-  height:60rem
+  height:60rem;
 }
 .comment{
-  border: 1px solid;
   height: 0rem;
   width:33rem;
 }
-.add-answer{
-  border: 1px solid;
-  padding-top:10rem;
+.img-detail{
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+img{
+  width:9rem;
+  height:9rem
+}
+.req-assi{
+  padding-left: 12rem;
+}
+.req-assi > h1 {
+  font-size:12px;
+}
+
+
+.commnet-text  {
+  width: 24rem;
+  height:4rem
 }
 .card-header{
   display: flex;
-  gap: 10rem;
+  gap: 9rem;
 }
 
-.delete-answer{
+.severity-problem{
   display: flex;
-  width:100%;
-  border: 1px solid;
-  justify-content: flex-end; ;
+  padding-top: 5rem;
+  flex-direction: row;
+  gap: 15rem;
+}
+.severity-problem > h1 {
+  font-size:2rem;
+}
 
-}
-#card-comment{
-  border: 6px solid
-}
 .main-conments{
-  border: 1px solid red;
   overflow: scroll;
 
+}
+.detail-ticket > h1 {
+  padding-top: 2rem;
+  padding-right: 5rem;
+  font-size: 16px;
+}
+
+.detail-issue{
+  text-align: center;
+}
+#btn-comments {
+  width:8rem;
+  height:4rem;
+}
+
+#button-card{
+  width: 32rem;
+}
+
+.card-title {
+  display: flex;
+  gap: 18rem;
 }

@@ -5,54 +5,52 @@
 <link rel="stylesheet" href="/stylesheets/newNav.css">
 <link rel="stylesheet" href="/stylesheets/details.css">
 <%- include('../partials/newNav') %>
+
 <div class="details"> 
 <% if (ticket.owner.avatar) { %>
-  <div>
-    <h1>request made by<%= ticket.owner.name %></h1>
+  <div class="img-detail">
     <img src="<%= ticket.owner.avatar %>"/>
+    <div class="req-assi">
+      <h1>Request Made By: <%= ticket.owner.name %></h1>
+      <h1>Assigned To: <%= ticket.assingedTo %></h1>
+      <h1><%= ticket.createdAt.toLocaleDateString()%> </h1>
+    </div>
   </div>
-<% } %>
-<h1>assineged to</h1>
-<h1><%= ticket.assingedTo %></h1>
-<h1>Full Detail</h1>
+  <% } %>
+<div class="severity-problem">
+  <h1>Severity: <%= ticket.severity %></h1>
+  <h1>Problem: <%= ticket.problems %></h1>
+</div>
+<div class="detail-ticket">
+  <div class="detail-issue">
+  <h1>Issue</h1>
+</div>
 <h1> <%= ticket.details  %></h1>
-<h1>Problems</h1>
-<h1><%= ticket.problems %></h1>
-<h1>Severity</h1>
-<h1><%= ticket.severity %></h1>
-<h1>TICKET_ID</h1>
-<h1><%= ticket._id  %></h1>
-<h1>time</h1>
-<td><%= ticket.createdAt.toLocaleDateString()%> </td>
+</div>
 </div>
 <div class="comment" > 
-
-<% ticket.comments.forEach(function(comment) { %>
-  <div class="main-conments">
-    <div class="card" id="card-comment">
-      <div class="card-header"> 
-      <p><%= comment.owner %><p>
-      <p><%= ticket.createdAt.toLocaleDateString()%></p>
-      </div>
-      <div class="card-body">
-        <p class="card-text"><%= comment.answer %></p>
-      </div>
-      <div class="delete-answer"> 
-        <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
-          <form action="/tickets/<%= comment._id %>/?_method=DELETE" method="POST">
-          <button  action=submit class="button">Delete</button>
-        </form>
-        <%} %>
-      </div>
-    </div> 
-  </div>
-<%}) %> 
 <div class="add-answer">  
 <form method="POST" action="/tickets/<%=ticket._id%>/comments"> 
-    <input type="text" name="answer" placeholder=" comments" required> 
-    <button type="submit"> add</button>
+    <input type="text" name="answer" placeholder=" comments"  class="commnet-text " required> 
+    <button type="submit" class="btn btn-success" id="btn-comments"> add</button>
 </form>
 </div>
+  
+  <% ticket.comments.forEach(function(comment) { %>
+    <div class="card"   id="button-card">
+      <div class="card-body">
+        <div class="card-title">
+          <p> <%= comment.owner %></p>
+          <p> <%= ticket.createdAt.toLocaleDateString()%></p>
+        </div>
+        <p class="card-text"><%= comment.answer %></p>
+      </div>
+    </div>
+    <%}) %> 
 </div>
+
+
+
+
 
 

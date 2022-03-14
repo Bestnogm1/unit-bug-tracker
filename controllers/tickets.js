@@ -1,10 +1,12 @@
 import { Ticket } from '../models/tickets.js'
-
-
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime.js'
+dayjs.extend(relativeTime)
 function index(req, res,) {
   Ticket.find({}) 
   .then(tickets =>{
     res.render('tickets/index', {
+      dayjs,
       tickets,
       title:"tickets"
     })

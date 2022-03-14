@@ -1,7 +1,7 @@
  body{
   margin: 0px;
   margin-right: 30em;
-  /* background-color: rgb(214, 214, 233); */
+  background-color: rgb(214, 214, 233);
   align-items: center;
 }
 
@@ -19,7 +19,7 @@ p{
   justify-content: center;
 }
 .container{
-  border:2px solid rgb(230, 216, 216);
+  border:2px solid rgb(0, 0, 0);
   height: 40vh;
   width: 30vh;
   display: flex;
