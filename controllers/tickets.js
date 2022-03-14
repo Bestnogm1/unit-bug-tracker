@@ -60,28 +60,7 @@ function show(req, res) {
   })
   .catch(err =>{ console.log(err);})
   }
-
-  // function delteCommnets(req, res){
-  // Ticket.findByIdAndDelete(req.params._d)
-  // .populate('owner')
-  // .then(ticket => {
-  //   if(ticket.owner.equals(req.user.profile._id)) {
-  //     ticket.delete()
-  //     .then(()=>{
-  //       res.redirect(`/tickets`)
-  //     }) 
-  //     .catch(error => {
-  //       res.redirect(`/tickets`)
-  //     })
-  //   } else {
-  //     throw new Error("its wrong")
-  //   }
-  // })
-  // }
-
-  function deleteCommnets(req, res) {
-    
-  }
+  
 
 function deleteTicket(req, res) {
   Ticket.findById(req.params.id)
@@ -147,6 +126,6 @@ export{
   edit,
   update,
   addcomments,
-  deleteCommnets,
+
   
 }

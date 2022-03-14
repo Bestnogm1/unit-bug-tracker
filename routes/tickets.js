@@ -12,8 +12,8 @@ router.delete('/:id',isLoggedIn ,ticketsCtrl.delete)
 router.get('/:id/edit',isLoggedIn,ticketsCtrl.edit)
 router.put('/:id',isLoggedIn,ticketsCtrl.update)
 router.post('/:id/comments',isLoggedIn, ticketsCtrl.addcomments)
-router.delete('/:id',isLoggedIn, ticketsCtrl.deleteCommnets)
 
 export{
   router
 }
+

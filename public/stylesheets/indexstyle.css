@@ -1,7 +1,7 @@
  body{
   margin: 0px;
   margin-right: 30em;
-  background-color: rgb(214, 214, 233);
+  /* background-color: rgb(214, 214, 233); */
   align-items: center;
 }
 
@@ -26,10 +26,10 @@ p{
   flex-direction: column;
   justify-content: space-evenly;
   margin: 25px;
-  text-align: center;
+ 
 }
 .container h3 {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(185, 111, 111, 0);
   min-height: 10vh;
 }
 .bottom{
@@ -37,4 +37,17 @@ p{
   flex-direction: row;
   background-color: white;
   justify-content: space-evenly
+}
+.assingtedto-date-time{
+  display: flex;
+  gap: 7rem;
+  padding-left: 12px;
+
+}
+.assingtedto-date-time > h2 {
+  font-size: 15px;
+}
+.delete-detail-edit{
+display: flex;
+justify-content: space-evenly;
 }

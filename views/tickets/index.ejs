@@ -8,20 +8,20 @@
 <div class="main-header">  
   <% tickets.forEach((ticket)=>{ %>
     <div class="container"> 
-
-      <h2 class="card-title">AssingedTo:<%= ticket.assingedTo %></h5>
+      <div class="assingtedto-date-time">
+      <h2 class="card-title">Assinged To:<%= ticket.assingedTo %></h5>
       <h2 class="time"><%= ticket.createdAt.toLocaleDateString()%></h5>
-      <h2 clas="problem">Problem type: <%= ticket.problems %> </h5>
-      <h2 class="Severity"><%= ticket.severity %> </h5>
-      <h2 class="ID">ID <%= ticket._id  %> </h5>
-      <p class="card-text"><%= ticket.details  %></p>
+        </div>
+      <h2 clas="problem">Problem Type: <%= ticket.problems %> </h5>
+      <h2 class="Severity"> Severity: <%= ticket.severity %> </h5>
+      <p class="card-text"> <%= ticket.details  %></p>
 
-        <div class="bottom"> 
-      <a href="/tickets/<%= ticket._id %>" class="card-link"> <button>Detail</button></a> 
-        <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> <button> edit</button></a>
+        <div class="delete-detail-edit"> 
+      <a href="/tickets/<%= ticket._id %>" class="card-link"> <button class="btn btn-info" >Detail</button></a> 
+        <a href="/tickets/<%= ticket._id %>/edit" class="card-link"> <button class="btn btn-secondary"> edit</button></a>
     <% if(ticket.owner._id.toString() === user.profile._id.toString()) { %> 
       <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
-      <button  class="button">Delete</button></form>
+      <button  class="btn btn-outline-danger">Delete</button></form>
     <%} %>
     </div>
   </div>
