@@ -4,16 +4,22 @@ body{
   padding-left: 38rem;
 }
 .container-create{
-  background-color: rgb(226, 201, 201);
+  background-color: rgb(237, 147, 147);
   display: flex;
-  height:37rem;
+  height:47rem;
   flex-direction: column;
-  width: 60rem;
+  width: 50rem;
 }
 .assingedTo{
   display: flex;
   flex-direction:column;
-  width: 50%;
+  width: 80%;
+}
+.assingedTo > input{
+  height: 3rem;
+}
+label{
+  font-size: 20px
 }
 .title{
   border: 1px solid rgb(234, 238, 20);
@@ -29,20 +35,25 @@ body{
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
+  height: 30%;
 }
 .severity{
   padding-top: 1rem;
   display: flex;
   flex-direction:column;
-  width: 50%;
+  width: 80%;
 }
 .problem{
   padding-top: 1rem;
   display: flex;
   flex-direction:column;
-  width: 50%;
+  width: 80%;
 }
 .add-button{
-  padding-top: 1rem;
+  padding-top: 5rem;
+}
+
+.detail-create > input {
+  height: 9rem;
 }

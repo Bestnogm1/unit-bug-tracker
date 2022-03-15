@@ -1,7 +1,7 @@
-body{
+.testingBody{
   display: flex;
   padding-top:15rem;
-  padding-left: 38rem;
+  padding-left: 66rem;
 }
 .container-create{
   background-color: rgb(237, 147, 147);
@@ -14,7 +14,9 @@ body{
   display: flex;
   flex-direction:column;
   width: 80%;
-
+}
+.assingedTo > input{
+  height: 3rem;
 }
 label{
   font-size: 20px
@@ -49,5 +51,9 @@ label{
   width: 80%;
 }
 .add-button{
-  padding-top: 1rem;
+  padding-top: 5rem;
+}
+
+.detail-create > input {
+  height: 9rem
 }
